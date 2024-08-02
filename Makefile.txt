@@ -1,0 +1,16 @@
+CXX = g++
+CXXFLAGS = -Wall -std=c++11
+
+all: main test
+
+main: main.cpp lista.o
+	$(CXX) $(CXXFLAGS) -o main main.cpp lista.o
+
+test: test.cpp lista.o
+	$(CXX) $(CXXFLAGS) -o test test.cpp lista.o
+
+lista.o: lista.cpp lista.h
+	$(CXX) $(CXXFLAGS) -c lista.cpp
+
+clean:
+	rm -f *.o main test
